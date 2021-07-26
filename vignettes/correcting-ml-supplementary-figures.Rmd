@@ -1,0 +1,140 @@
+---
+title: "Correcting machine learning models - Supplementary Figures"
+output:
+  pdf_document:
+    keep_tex: true
+header-includes:
+  \usepackage{caption}
+  \usepackage{float}
+  \usepackage{amsmath}
+  \usepackage{graphicx}
+  \floatplacement{figure}{H}
+  \captionsetup[figure]{labelfont={bf}, name={Figure}, labelsep=period}
+---
+
+
+```{r, analysis, echo=FALSE}
+source("config.R")
+source("cml-mnist.R")
+source("cml-testis.R")
+```
+
+
+```{r, graphics.details, echo=FALSE}
+knitr::opts_chunk$set(dpi=600, dev="png", dev.args=list(type="cairo-png"))
+```
+
+
+```{r supfig.digits, eval=TRUE, echo=FALSE, fig.width=3.2, fig.height=0.5, fig.align="center", out.width="50%", fig.cap="\\textbf{MNIST digits}. Example images from the MNIST digits dataset."}
+layout(matrix(1, nrow=1,ncol=1), width=3.2, height=0.5)
+mnist_rect <- c(0, 0.0, 1, 1)
+mnist_shift <- c(1, 0, 1, 0)
+parplot(0, xlim=c(0, 10), ylim=c(0, 1), Rcssclass="mnist")
+for (i in seq(0, 9)) {
+  mnist.i <- mnist_samples[label==i]$index[1]
+  add_mnist(mnist$original[mnist.i, ], mnist_rect+mnist_shift*i)
+}
+```
+
+
+```{r supfig.training, eval=TRUE, echo=FALSE, fig.width=6.5, fig.height=1.9, fig.align="center", out.width="100%", fig.cap="\\textbf{Training multiclass classifiers on the MNIST digits dataset and variants}. \\textbf{(a)} Performance of xgboost classification models trained and evaluated on the MNIST digits dataset. Performance is presented as a function of hyperparameter 'nrounds', which determines the length of training. Performance is evaluated on the training data, which is available to the learning algorithm during training, and on holdout data, which is not available during learning. The vertical line indicates the hyperparameter value chosen for subsequent experiments because it lies along the upward-trending part of the performance curves and because it limits training time to an acceptable level for high-volume experiments. \\textbf{(b)} Analogous to (a), but with calculations performed on two variants of the MNIST digits dataset, denoted as 'subset' variants, which each consist of half of the data instances as in the original dataset."}
+layout(matrix(c(1,3,2), nrow=1, ncol=3),
+       width=c(3.1, 0.3, 3.1), height=c(2.0))
+nrounds_train <- copy(mnist_nrounds)
+nrounds_train$series <- "train"
+nrounds_train$score_holdout <- NULL
+setnames(nrounds_train, "score_train", "score")
+nrounds_holdout <- copy(mnist_nrounds)
+nrounds_holdout$series <- "holdout"
+nrounds_holdout$score_train <- NULL
+setnames(nrounds_holdout, "score_holdout", "score")
+nrounds <- rbind(nrounds_train, nrounds_holdout)
+nrounds$series <- paste0(nrounds$series, "_", nrounds$variant, "_", nrounds$rep)
+nrounds$score <- 100 * nrounds$score
+plot_series(nrounds[variant=="original"], series_col="series", show_points=FALSE,
+            series=c("train_original_1", "holdout_original_1"),
+            x_var="nround", y_var="score", xlim=c(0, 50), ylim=c(90, 100),
+            xlab="xgboost training rounds", ylab="Hit rate (%)",
+            main="Evolution of performance during training\n(original data)",
+            Rcssclass="nrounds")
+text(50, 99.2, "training data", Rcssclass=c("series", "nrounds", "label"))
+text(50, 95.9, "holdout data", Rcssclass=c("series", "nrounds", "label"))
+lines(rep(30, 2), c(90, 100), Rcssclass=c("series", "nrounds", "choice"))
+text(31, 91, "chosen\nhyperparameter value",
+     Rcssclass=c("series", "nrounds", "choice"))
+multipanelLabel(panel_labels[1])
+plot_series(nrounds[variant=="subset"], series_col="series", show_points=FALSE,
+            series=c("train_subset_1", "train_subset_2", "holdout_subset_1", "holdout_subset_2"),
+            x_var="nround", y_var="score", xlim=c(0, 50), ylim=c(90, 100),
+            xlab="xgboost training rounds", ylab="Hit rate (%)",
+            main="Evolution of performance during training\n(2 replicates of 'subset' data)",
+            Rcssclass="nrounds")
+text(50, 99.2, "training data", Rcssclass=c("series", "nrounds", "label"))
+text(50, 95.2, "holdout data", Rcssclass=c("series", "nrounds", "label"))
+lines(rep(30, 2), c(90, 100), Rcssclass=c("series", "nrounds", "choice"))
+text(31, 91, "chosen\nhyperparameter value",
+     Rcssclass=c("series", "nrounds", "choice"))
+multipanelLabel(panel_labels[2])
+```
+
+
+```{r supfig.imbalance, eval=TRUE, echo=FALSE, fig.width=5.2, fig.height=4.4, fig.align="center", out.width="80%", fig.cap="\\textbf{Predictions of model ensembles on MNIST digits with noise}. \\textbf{(a)} Breakdown of class predictions from a model ensemble applied to MNIST digits images with increasing levels of noise. The ensemble comprised two models, each trained on a distinct subset of MNIST images (without noise). The ensemble was calibrated on holdout images (without noise), and then applied on test images with increasing levels of noise. The hit rate on the right-hand side summarizes overall performance. \\textbf{(b)} Analogous to (a), but with the model ensemble re-calibrated at each noise level on holdout images with noise."}
+layout(matrix(c(1,2,3), nrow=3, ncol=1),
+       width=c(5.4), height=c(0.4, 2.0, 2.0))
+# get a vector of color codes associated with digits
+digit_cols <- digit_label_col <- c()
+for (digit in seq(0, 9)) {
+  digit_cols[paste0("proportion_", digit)] <-
+          RcssValue("digits", paste0("digit_", digit), default="#888888")
+  digit_label_col[paste0("proportion_", digit)] <-
+          RcssValue("digits", paste0("label_", digit), default="#000000")
+}
+digits_legend <- function() {
+  RcssCompulsoryClass <- c("imbalance", "legend")
+  parplot(0, xlim=c(-2.8, 10), ylim=c(0, 1))
+  text(-2.8, 0.5, "Predicted digits", Rcssclass="main")
+  for (i in seq(0, 9)) {
+    rect(i, 0.25, i+0.35, 0.75, col=digit_cols[paste0("proportion_", i)])
+    text(i+0.45, 0.5, i)
+  }
+}
+digits_legend()
+#
+# class imabalance stacked barplots
+digit_labels <- setNames(seq(0, 9), paste0("class_", seq(0, 9)))
+stack_data <- mnist_performance$calibration[variant=="subset"]
+add_hit_rate <- function(d, x=105) {
+  for (i in seq_len(nrow(d))) {
+    text(x, -i+0.5, sprintf("%.1f", round(100*d$test[i], 1)),
+         Rcssclass=c("stacks", "rate"))
+  }
+  text(x, 1, "Hit rate (%)", Rcssclass=c("stacks", "rate"))
+}
+plot_stacks(stack_data[rep=="ensemble_calibrated"],
+            series_col="bg", value_col=paste0("proportion_", seq(0, 9)),
+            box_col=digit_cols, label_col=digit_label_col,
+            box_labels=digit_labels,
+            xlab="Proportion of predictions (%)",
+            ylab="Noise level (%)")
+text(50, 1, "Predictions of model ensemble calibrated on original data",
+     Rcssclass=c("stacks", "main"))
+add_hit_rate(stack_data[rep=="ensemble_calibrated"])
+multipanelLabel(panel_labels[1])
+plot_stacks(stack_data[rep=="ensemble_recalibrated"],
+            series_col="bg", value_col=paste0("proportion_", seq(0, 9)),
+            box_col=digit_cols, label_col=digit_label_col,
+            box_labels=digit_labels,
+            xlab="Proportion of predictions (%)",
+            ylab="Noise level (%)")
+text(50, 1, "Predictions of model ensemble re-calibrated on noisy data",
+     Rcssclass=c("stacks", "main"))
+add_hit_rate(stack_data[rep=="ensemble_recalibrated"])
+multipanelLabel(panel_labels[2])
+```
+
+```{r}
+# group sizes
+testis_groups <- testis_data$Guo[label!="", list(count=nrow(.SD)), by=c("age", "dataset")]
+testis_groups[order(age, dataset)]
+```
+

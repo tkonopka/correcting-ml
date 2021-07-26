@@ -1,0 +1,19 @@
+# local temporary files
+.idea
+*~
+
+# data files
+*tsv
+*csv
+*gz
+*zip
+*Rda
+
+# graphics and compiled vignettes
+*pdf
+*png
+*jpg
+*jpeg
+*tiff
+*tex
+*html

@@ -1,0 +1,550 @@
+/** styles for graphics **/
+
+par {
+    ps: 7;
+    cex: 1;
+    mai: 0.05 0.05 0.05 0.05;
+}
+plot {
+    type: n;
+    axes: FALSE;
+    frame: FALSE;
+    xlab: ;
+    ylab: ;
+    main: ;
+}
+rect, points, text, mtext {
+    xpd: 1;
+}
+axis {
+    las: 1;
+}
+text.multipanel {
+    cex: 1.72;
+    font: 2;
+    xpd: 1;
+    adj: 0 1;
+}
+
+
+/** drawing schematic diagrams **/
+par.schematic {
+    mai: 0.3 0.25 0.1 0.2;
+    mgp: 0 0 0;
+}
+plot.schematic {
+    axes: FALSE;
+    type: n;
+}
+text.schematic {
+    cex: 0.85;
+}
+text.schematic.main {
+    cex: 1;
+}
+polygon.schematic {
+    border: NA;
+    xpd: 1;
+}
+polygon.schematic.train {
+    col: #ffffff;
+}
+polygon.schematic.holdout {
+    col: #dddddd;
+}
+polygon.schematic.test {
+    col: #aaaaaa;
+}
+polygon.schematic.outline {
+    border: #222222;
+    lwd: 0.5;
+}
+polygon.schematic.outline.primary {
+    lwd: 1.5;
+}
+polygon.schematic.outline.secondary {
+    lwd: 1.5;
+    lty: 3;
+}
+points.schematic.ellipsis {
+    pch: 19;
+    cex: 0.2;
+    col: #444444;
+}
+text.schematic.label {
+    adj: 0 0.5;
+}
+
+
+/** drawing mnist images **/
+mnist {
+    col: #ffffff #000000;
+    /** masked: #9999ff; **/
+    masked: #c3d4af;
+}
+par.mnist {
+    mai: 0.08 0.1 0.12 0.1;
+    mgp: 0 0 0;
+}
+plot.mnist {
+    xaxs: i;
+    yaxs: i;
+}
+rect.mnist {
+    border: #000000;
+    col: NA;
+    lwd: 0.5;
+    xpd: 1;
+}
+text.mnist {
+    adj: 0.5 -0.5;
+}
+text.mnist.comment {
+    adj: 0 0.5;
+}
+
+
+/** labels **/
+par.label {
+    mai: 0.02 0.1 0.02 0.1;
+    mgp: 0 0 0;
+}
+text.label {
+    col: #222222;
+}
+
+
+/** drawing performance change graphs **/
+perf {
+    label.q: 0.5 1.0;
+    label.length: 0.8;
+    state.pad: 0.1;
+}
+par.perf.mid {
+    mai: 0.2 0.05 0.25 0.06;
+    mgp: 0 0 0;
+}
+par.perf.left {
+    mai: 0.2 0.35 0.25 0.06;
+    mgp: 0 0 0;
+}
+par.perf.zoom {
+    mai: 0.55 0.45 0.35 0.85;
+}
+par.perfspace {
+    mai: 0.02 0.1 0.1 0.1;
+}
+plot.perf {
+    xaxs: i;
+}
+axis.perf.y {
+    lwd: 0;
+    lwd.ticks: 1;
+    cex.axis: 0.85;
+}
+axis.perf.left.y {
+    cex.axis: 0.85;
+    lwd: 0;
+    lwd.ticks: 1;
+    tck: -0.08;
+    line: 0.2;
+}
+axis.perf.zoom.y {
+    cex.axis: 0.85;
+    lwd: 0;
+    lwd.ticks: 1;
+    tck: -0.02;
+    line: 0.2;
+}
+mtext.perf.main {
+    line: 0.2;
+}
+mtext.perf.zoom.main {
+    line: 0.2;
+}
+mtext.perf.ylab {
+    line: 1.3;
+}
+mtext.perf.left.ylab {
+    line: 1.1;
+}
+lines.perf.state {
+    lwd: 0.5;
+    col: #bbbbbb;
+}
+lines.perf.label {
+    col: #444444;
+    lwd: 0.5;
+    xpd: 1;
+}
+lines.perf.segment {
+    col: #555555;
+    lwd: 0.75;
+}
+text.perf.state {
+    srt: 28;
+    adj: 1 0.5;
+    cex: 0.85;
+}
+text.perf.left.state, text.perf.mid.state {
+    srt: 0;
+    adj: 0.5 0.5;
+    cex: 0.85;
+}
+points.perf {
+    cex: 0.65;
+    pch: 21;
+    lwd: 0.5;
+    col: #000000;
+    bg: #aaaaaa;
+}
+points.perf.ensemble_uncalibrated {
+    cex: 1.0;
+    lwd: 0.5;
+    bg:  #3185fc;
+}
+points.perf.ensemble_calibrated {
+    cex: 1.0;
+    lwd: 0.5;
+    bg: #afd0fe;
+}
+text.perf.label {
+    adj: 0 0.5;
+    cex: 0.85;
+}
+text.perf.main {
+    adj: 0.5 0.5;
+    cex: 1;
+}
+
+
+
+/** horizontal slide **/
+par.slide {
+    mai: 0.35 0.45 0.55 0.1;
+    mgp: 0 0 0;
+    lheight: 0.8;
+}
+par.slide.testis {
+    mai: 0.4 0.45 0.55 0.1;
+    mgp: 0 0 0;
+    lheight: 0.8;
+}
+axis.slide.x {
+    cex.axis: 0.85;
+    lwd: 0;
+    lwd.ticks: 1;
+    tck: -0.02;
+    col.axis: #444444;
+    line: -0.3;
+}
+axis.slide.y {
+    lwd: 0;
+    lwd.ticks: 0;
+    tck: 0;
+    line: 0.1;
+}
+lines.slide.state {
+    lwd: 0.5;
+    col: #bbbbbb;
+}
+points.slide {
+    pch: 21;
+    col: #000000;
+    lwd: 0.5;
+}
+points.slide.model {
+    bg: #aaaaaa;
+    cex: 0.65;
+}
+points.slide.testis.fun_uncalibrated, points.slide.testis.xgb_uncalibrated {
+    bg: #db162f;
+    cex: 0.65;
+}
+points.slide.testis.fun_calibrated, points.slide.testis.xgb_calibrated {
+    bg: #f06a7c;
+    cex: 1.3;
+}
+points.slide.testis.fun_recalibrated, points.slide.testis.xgb_recalibrated {
+    bg: #f6a2ad;
+    cex: 0.82;
+    pch: 23;
+}
+points.slide.testis.funxgb_uncalibrated {
+    bg: #3185fc;
+    cex: 0.65;
+}
+points.slide.testis.funxgb_calibrated {
+    bg: #86b8fd;
+    cex: 1.3;
+}
+points.slide.testis.funxgb_recalibrated {
+    bg: #afd0fe;
+    cex: 0.82;
+    pch: 23;
+}
+points.slide.ensemble_uncalibrated {
+    cex: 1.0;
+    bg:  #3185fc;
+}
+points.slide.ensemble_calibrated {
+    cex: 1.0;
+    bg: #afd0fe;
+}
+mtext.slide.main {
+    line: 1.8;
+}
+mtext.slide.ylab {
+    line: 0;
+}
+mtext.slide.xlab {
+    line: 0.5;
+}
+text.slide.legend, text.slide.testis.legend {
+    adj: 0 0.5;
+}
+
+
+/** drawing minimal bar plot **/
+par.minbars {
+    mai: 0.2 0.1 0.15 0.2;
+    mgp: 0 0 0;
+}
+barplot.minbars {
+  width: 0.8;
+}
+rect.minbars {
+    col: #aaaaaa;
+    lwd: 0;
+    border: NA;
+}
+axis.minbars.x {
+    tck: 0;
+    lwd: 0;
+    line: -0.3;
+    cex.axis: 0.85;
+    col.axis: #444444;
+}
+mtext.minbars.main {
+    line: -0.25;
+}
+
+
+/** series lines **/
+par.series {
+    mai: 0.5 0.45 0.15 0.65;
+    mgp: 0 0 0;
+}
+par.series.series80 {
+    mai: 0.5 0.45 0.15 0.25;
+}
+par.series.nrounds {
+    mai: 0.3 0.45 0.35 0.2;
+}
+axis.series {
+    tck: -0.02;
+    lwd: 0.5;
+    cex.axis: 0.85;
+    col.axis: #444444;
+}
+axis.series.x {
+    line: -0.3;
+}
+axis.series.y {
+    line: 0.2;
+}
+mtext.series.xlab {
+    line: 1.3;
+}
+mtext.series.ylab {
+    line: 1.3;
+}
+lines.series {
+    lwd: 3;
+}
+points.series {
+    cex: 0.6;
+    pch: 19;
+    lwd: 2;
+    col: #000000;
+    bg: #ffffff;
+}
+points.series.original, lines.series.original {
+    col: #db162f;
+}
+points.series.original, points.series.subset {
+    lwd: 1
+}
+lines.series.original, lines.series.subset, lines.series.neutral {
+    lwd: 1.5;
+    lty: 2;
+}
+points.series.original_re, lines.series.original_re, lines.series.original_imputed {
+    col: #db162f;
+}
+points.series.subset, lines.series.subset, lines.series.subset_imputed {
+    col: #3185fc;
+}
+points.series.neutral_re, lines.series.neutral_re, lines.series.neutral, lines.series.neutral_imputed {
+    col: #222222;
+}
+points.series.subset_re, lines.series.subset_re {
+    col: #3185fc;
+}
+legend.series {
+    y.intersp: 0.72;
+    x.intersp: 0.6;
+    seg.len: 2 1.1;
+}
+text.series.legend {
+    adj: 0 0.5;
+    xpd: 1;
+    col: #222222;
+    cex: 0.85;
+}
+lines.series.train_original_1, lines.series.train_subset_1, lines.series.train_subset_2 {
+    col: #777777;
+    lwd: 2;
+}
+lines.series.holdout_original_1, lines.series.holdout_subset_1, lines.series.holdout_subset_2 {
+    col: #3185fc;
+    lwd: 2;
+}
+lines.series.nrounds.choice {
+    col: #000000;
+    lty: 2;
+    lwd: 1;
+}
+text.series.nrounds.label {
+    adj: 1 0.5;
+}
+text.series.nrounds.choice {
+    adj: 0 0.5;
+}
+axis.series.nrounds {
+    tck: -0.015;
+}
+axis.series.nrounds.x {
+    tck: -0.018;
+    line: -0.25;
+}
+mtext.series.nrounds.xlab {
+    line: 0.5;
+}
+mtext.series.nrounds.main {
+    line: 0.1;
+}
+
+
+
+/** class imbalance **/
+par.imbalance.legend {
+    mai: 0.1 0.7 0.1 0.7;
+    mgp: 0 0 0;
+}
+text.imbalance.legend {
+    col: #222222;
+    adj: 0 0.5;
+    cex: 1;
+}
+text.imbalance.legend.main {
+    col: #000000;
+}
+rect.imbalance.legend {
+    border: #222222;
+    lwd: 0.5;
+}
+digits {
+    digit_0: #db162f;
+    digit_1: #db162f33;
+    digit_2: #0000f5;
+    digit_3: #0000f533;
+    digit_4: #f6a000;
+    digit_5: #f6a00033;
+    digit_6: #44af69;
+    digit_7: #44af6933;
+    digit_8: #7a7a7a;
+    digit_9: #7a7a7a33;
+    label_0: #ffffff;
+    label_2: #ffffff;
+    label_8: #ffffff;
+}
+par.stacks {
+    mai: 0.4 0.35 0.25 0.3;
+    mgp: 0 0 0;
+}
+barplot.stacks {
+    width: 0.8;
+}
+rect.stacks {
+    lwd: 0.5;
+    border: #222222;
+}
+axis.stacks {
+    cex.axis: 0.85;
+    col.axis: #444444;
+    tck: -0.02;
+}
+axis.stacks.x {
+    line: -0.2;
+    lwd: 0.5;
+}
+axis.stacks.y {
+    line: -0.5;
+}
+mtext.stacks.xlab {
+    line: 0.55;
+}
+mtext.stacks.ylab {
+    line: 0.8;
+}
+mtext.stacks.main {
+    line: 0.0;
+    cex: 1;
+    col: #000000
+}
+text.stacks.label {
+    cex: 0.85;
+    col: #222222;
+}
+text.stacks.rate, text.stacks.main {
+    cex: 1;
+    col: #000000;
+    adj: 0.5 0.5;
+}
+
+
+/** umap **/
+par.umap {
+    mai: 0.15 0.1 0.25 0.05;
+    mgp: 0 0 0;
+}
+text.umap {
+    xpd: 1;
+    cex: 0.85;
+    col: #222222;
+}
+text.umap.xlab {
+    adj: 0.5 1.8;
+}
+text.umap.ylab {
+    srt: 90;
+    adj: 0.5 -0.9;
+}
+points.umap {
+    pch: ·;
+    cex: 0.25;
+    col: #bbbbbb;
+}
+points.umap.hit {
+    col: #db162f;
+    cex: 0.35;
+}
+Arrow.umap {
+    lwd: 1;
+    col: #222222;
+}
+mtext.umap.main {
+    line: -0.1;
+}
+
