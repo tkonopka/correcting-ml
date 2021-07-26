@@ -1,0 +1,114 @@
+cell_group	cell_type	cell_type_name	cell_type_stage	original_gene_symbol	gene_symbol
+somatic	SC	Sertoli	adult	GATA1	GATA1
+somatic	SC	Sertoli	adult	WT1	WT1
+somatic	SC	Sertoli	adult	GATA4	GATA4
+somatic	SC	Sertoli	prepubertal	INHA	INHA
+somatic	SC	Sertoli	prepubertal	SOX9	SOX9
+somatic	SC	Sertoli	prepubertal	SOX4	SOX4
+somatic	SC	Sertoli	prepubertal	INHBB	INHBB
+somatic	PTM	Peritubular myoid	adult	MYH11	MYH11
+somatic	PTM	Peritubular myoid	adult	CNN1	CNN1
+somatic	PTM	Peritubular myoid	adult	SMA	SMA
+somatic	PTM	Peritubular myoid	adult	ACTA2	ACTA2
+somatic	PTM	Peritubular myoid	adult	TPM1	TPM1
+somatic	PTM	Peritubular myoid	fetal	TAGLN	TAGLN
+somatic	LC	Leydig	adult	HSD3B2	HSD3B2
+somatic	LC	Leydig	adult	IGF1	IGF1
+somatic	LC	Leydig	adult	INSL3	INSL3
+somatic	LC	Leydig	adult	STAR	STAR
+somatic	LC	Leydig	adult	SF1	SF1
+somatic	LC	Leydig	adult	CYP1B1	CYP1B1
+somatic	LC	Leydig	adult	HSD3B1	HSD3B1
+somatic	LC	Leydig	prepubertal	INHBA	INHBA
+somatic	LC	Leydig	fetal	VCAM1	VCAM1
+somatic	LC	Leydig	fetal	TSP2	THBS2
+somatic	Endothelial	Endothelial	NA	CD34	CD34
+somatic	Blood	Blood	NA	CD74	CD74
+somatic	Blood	Blood	NA	HLA-DRB1	HLA-DRB1
+somatic	Blood	Blood	NA	HBA2	HBA2
+somatic	Blood	Blood	NA	HBG2	HBG2
+somatic	Blood	Blood	NA	HBG1	HBG1
+somatic	Macrophage	Macrophage	NA	AIF1	AIF1
+somatic	Macrophage	Macrophage	NA	CD68	CD68
+somatic	Stroma	Stroma	NA	MGP	MGP
+somatic	Stroma	Stroma	NA	GNG11	GNG11
+somatic	Stroma	Stroma	NA	SPARCL1	SPARCL1
+somatic	Stroma	Stroma	NA	SLC9A3R2	SLC9A3R2
+somatic	Stroma	Stroma	NA	HLA-B	HLA-B
+somatic	Stroma	Stroma	NA	KLF2	KLF2
+somatic	Fibroblasts	Fibroblasts	NA	FSP1	FSP1
+germ	PGC	Perimordial germ	NA	POU5F1	POU5F1
+germ	PGC	Perimordial germ	NA	NANOG	NANOG
+germ	PGC	Perimordial germ	NA	SOX17	SOX17
+germ	PGC	Perimordial germ	NA	TFAP2C	TFAP2C
+germ	PGC	Perimordial germ	NA	NANOS3	NANOS3
+germ	PGC	Perimordial germ	NA	PDPN	PDPN
+germ	PGC	Perimordial germ	NA	KIT	KIT
+germ	PGC	Perimordial germ	NA	TCL1A	TCL1A
+germ	PGC	Perimordial germ	NA	ZFP42	ZFP42
+germ	PGC	Perimordial germ	NA	SOX15	SOX15
+germ	PGC	Perimordial germ	NA	DPPA3	DPPA3
+germ	PGC	Perimordial germ	NA	TET1	TET1
+germ	PGC	Perimordial germ	NA	T	TBXT
+germ	PGC	Perimordial germ	NA	CD38	CD38
+germ	PGC	Perimordial germ	NA	PRDM1	PRDM1
+germ	PGC	Perimordial germ	NA	PIWIL1	PIWIL1
+germ	PGC	Perimordial germ	NA	DND1	DND1
+germ	PreSG	PreSG	NA	PIWIL4	PIWIL4
+germ	PreSG	PreSG	NA	DDX4	DDX4
+germ	PreSG	PreSG	NA	MAGEA4	MAGEA4
+germ	PreSG	PreSG	NA	PIWIL2	PIWIL2
+germ	PreSG	PreSG	NA	UTF1	UTF1
+germ	PreSG	PreSG	NA	TEX14	TEX14
+germ	PreSG	PreSG	NA	TEX15	TEX15
+germ	PreSG	PreSG	NA	TDRD6	TDRD6
+germ	PreSG	PreSG	NA	KLF5	KLF5
+germ	PreSG	PreSG	NA	TFCP2L1	TFCP2L1
+germ	PreSG	PreSG	NA	CPEB1	CPEB1
+germ	SSC	Spermatogonial stem	NA	LIN7B	LIN7B
+germ	SSC	Spermatogonial stem	NA	C19orf84	C19orf84
+germ	SSC	Spermatogonial stem	NA	PIWIL4	PIWIL4
+germ	SSC	Spermatogonial stem	NA	UTF1	UTF1
+germ	SSC	Spermatogonial stem	NA	MAGEB2	MAGEB2
+germ	SSC	Spermatogonial stem	NA	PODXL2	PODXL2
+germ	SSC	Spermatogonial stem	NA	EGR4	EGR4
+germ	SSC	Spermatogonial stem	NA	FSD1	FSD1
+germ	SSC	Spermatogonial stem	NA	RAC3	RAC3
+germ	SSC	Spermatogonial stem	NA	TCF3	TCF3
+germ	SSC	Spermatogonial stem	NA	MSL3	MSL3
+germ	SSC	Spermatogonial stem	NA	MORC1	MORC1
+germ	SSC	Spermatogonial stem	NA	STK31	STK31
+germ	SSC	Spermatogonial stem	NA	NOC4L	NOC4L
+germ	SSC	Spermatogonial stem	NA	LPPR5	PLPPR5
+germ	SSC	Spermatogonial stem	NA	SURF2	SURF2
+germ	SSC	Spermatogonial stem	NA	RGS14	RGS14
+germ	SSC	Spermatogonial stem	NA	PTRHD1	PTRHD1
+germ	SSC	Spermatogonial stem	NA	ENHO	ENHO
+germ	SSC	Spermatogonial stem	NA	SH2B2	SH2B2
+germ	SSC	Spermatogonial stem	NA	CPEB1	CPEB1
+germ	Progenitors	Progenitors	NA	NGN3	NEUROG3
+germ	Progenitors	Progenitors	NA	NANOS3	NANOS3
+germ	Progenitors	Progenitors	NA	MAGEA4	MAGEA4
+germ	Undiff_SPG	Undifferentiated spermatogonia	NA	ID4	ID4
+germ	Undiff_SPG	Undifferentiated spermatogonia	NA	ZBTB16	ZBTB16
+germ	Undiff_SPG	Undifferentiated spermatogonia	NA	BCL6B	BCL6B
+germ	Undiff_SPG	Undifferentiated spermatogonia	NA	LIN28	LIN28A
+germ	Undiff_SPG	Undifferentiated spermatogonia	NA	UTF1	UTF1
+germ	Undiff_SPG	Undifferentiated spermatogonia	NA	SALL4	SALL4
+germ	Undiff_SPG	Undifferentiated spermatogonia	NA	FGFR3	FGFR3
+germ	Diff_SPG	Differentiated spermatogonia	NA	KIT	KIT
+germ	Diff_SPG	Differentiated spermatogonia	NA	SOHLH1	SOHLH1
+germ	Diff_SPG	Differentiated spermatogonia	NA	SOHLH2	SOHLH2
+germ	Diff_SPG	Differentiated spermatogonia	NA	STRA8	STRA8
+germ	Diff_SPG	Differentiated spermatogonia	NA	DMRT1	DMRT1
+germ	SPC	Spermatocyte	NA	REC8	REC8
+germ	SPC	Spermatocyte	NA	SPO11	SPO11
+germ	SPC	Spermatocyte	NA	RAD51	RAD51
+germ	SPC	Spermatocyte	NA	ACRROSIN	ACR
+germ	SPC	Spermatocyte	NA	SYCP1	SYCP1
+germ	SPC	Spermatocyte	NA	SYCP3	SYCP3
+germ	SPC	Spermatocyte	NA	STRA8	STRA8
+germ	St	St	NA	TNP1	TNP1
+germ	St	St	NA	TNP2	TNP2
+germ	St	St	NA	PRM1	PRM1
+germ	St	St	NA	PRM2	PRM2
