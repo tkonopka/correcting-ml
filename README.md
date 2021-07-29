@@ -1,6 +1,6 @@
 # correcting-ml
 
-This repository holds analyses demonstrating package "mlensemble" for correcting machine learning models using model ensembles and calibration.
+This repository holds analyses demonstrating package [mlensemble](https://github.com/tkonopka/mlensemble) for correcting machine learning models using model ensembles and calibration.
 
 
 ## Prep
